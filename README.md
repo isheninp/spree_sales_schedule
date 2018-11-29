@@ -1,12 +1,12 @@
-# SpreeSalesSchedule
+# Spree Sales Schedule
 
-Introduction goes here.
+This gem is under development now!
 
 ## Installation
 
 1. Add this extension to your Gemfile with this line:
   ```ruby
-  gem 'spree_sales_schedule', github: '[your-github-handle]/spree_sales_schedule'
+  gem 'spree_sales_schedule', github: 'isheninp/spree_sales_schedule'
   ```
 
 2. Install the gem using Bundler:
@@ -39,11 +39,7 @@ Simply add this require statement to your spec_helper:
 require 'spree_sales_schedule/factories'
 ```
 
-
 ## Contributing
 
-If you'd like to contribute, please take a look at the
-[instructions](CONTRIBUTING.md) for installing dependencies and crafting a good
-pull request.
 
-Copyright (c) 2018 [name of extension creator], released under the New BSD License
+Copyright (c) 2018 Pavel Ishenin, released under the New BSD License
