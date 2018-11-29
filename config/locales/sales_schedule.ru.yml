@@ -1,0 +1,18 @@
+ru:
+  spree:
+    sales_shedules: 'Расписание' 
+    models:
+      spree/sales_schedule:
+        many: "Расписания"
+        one: "Расписание"
+        other: "Расписание"
+    new_sales_schedule: Добавить запись
+    sales_shedule:
+      product_id: Код продукта
+      start_time: Время начала
+      end_time: Время окончания
+      group: Группа
+      places_left: Осталось мест
+    admin:
+      tab:
+        sales_schedules: "Расписание"

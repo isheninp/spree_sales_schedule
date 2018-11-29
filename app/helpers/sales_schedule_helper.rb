@@ -1,0 +1,2 @@
+module SalesScheduleHelper
+end
