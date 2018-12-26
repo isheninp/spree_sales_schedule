@@ -1,0 +1,28 @@
+ru:
+  sales_shedule:
+    validate_correct_period_error: "Время окончания должно быть позже времени начала"
+  activerecord:
+    attributes:
+      spree/sales_shedules:
+        product_id: Код продукта
+        start_time: Время начала
+        end_time: Время окончания
+        group: Группа
+        places_left: Осталось мест
+  spree:
+    models:
+      spree/sales_schedule:
+        many: "Расписания"
+        one: "Расписание"
+        other: "Расписание"
+    new_sales_schedule: Добавить запись
+    sales_shedule:
+      product_id: Код продукта
+      start_time: Время начала
+      end_time: Время окончания
+      group: Группа
+      places_left: Осталось мест
+      validate_period_error: "Время окончания должно быть позже времени начала"
+    admin:
+      tab:
+        sales_schedules: "Расписание"
