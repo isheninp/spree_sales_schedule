@@ -9,6 +9,8 @@ ru:
         end_time: Время окончания
         group: Группа
         places_left: Осталось мест
+        schedule_number: Номер занятия
+        schedule_title: Название занятия
   spree:
     models:
       spree/sales_schedule:
