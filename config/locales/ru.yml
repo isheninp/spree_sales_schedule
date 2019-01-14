@@ -1,16 +1,20 @@
 ru:
   sales_shedule:
-    validate_correct_period_error: "Время окончания должно быть позже времени начала"
+    number: Номер занятия
+    title: Название занятия
+    product_id: Код продукта
+    start_time: Время начала занятия
+    end_time: Время окончания занятия
+    description: Содержание занятия
+    validate_correct_period_error: Неверный период! Время окончания должно быть позднее времени начала.
+    validate_correct_string_error: Неверная дата! Формат даты "2020-01-15 15:00"
+    validate_past_period_error: Неверная дата! Дата начала должна быть не ранее сегодняшнего дня
   activerecord:
     attributes:
-      spree/sales_shedules:
+      spree/sales_shedule:
         product_id: Код продукта
-        start_time: Время начала
-        end_time: Время окончания
-        group: Группа
-        places_left: Осталось мест
-        schedule_number: Номер занятия
-        schedule_title: Название занятия
+        start_time: Время начала занятия
+        end_time: Время окончания занятия
   spree:
     models:
       spree/sales_schedule:
@@ -22,9 +26,6 @@ ru:
       product_id: Код продукта
       start_time: Время начала
       end_time: Время окончания
-      group: Группа
-      places_left: Осталось мест
-      validate_period_error: "Время окончания должно быть позже времени начала"
     admin:
       tab:
         sales_schedules: "Расписание"

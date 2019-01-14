@@ -23,7 +23,7 @@
 
       <div data-hook="admin_sales_schedule_form_start_time">
         <%= f.field_container :start_time, class: ['form-group'] do %>
-          <%= f.label :start_time, Spree.t(:start_time) %>
+          <%= f.label :start_time, I18n.t('sales_shedule.start_time') %>
           <%= f.text_field :start_time, type: 'datetime', value: f.object.start_time.strftime("%Y-%m-%d %H:%M"), class: 'form-control', required: 'required' %>
           <%= f.error_message_on :start_time %>
         <% end %>
@@ -31,7 +31,7 @@
 
       <div data-hook="admin_sales_schedule_form_end_time">
         <%= f.field_container :end_time, class: ['form-group'] do %>
-          <%= f.label :end_time, Spree.t(:end_time) %>
+          <%= f.label :end_time, I18n.t('sales_shedule.end_time') %>
           <%= f.text_field :end_time, type: 'datetime', value: f.object.end_time.strftime("%Y-%m-%d %H:%M"), class: 'form-control', required: 'required' %> 
           <%= f.error_message_on :end_time %>
         <% end %>
@@ -39,7 +39,7 @@
 
       <div data-hook="admin_sales_schedule_form_number">
         <%= f.field_container :number, class: ['form-group'] do %>
-          <%= f.label :number, Spree.t(:schedule_number) %>
+          <%= f.label :number, I18n.t('sales_shedule.number') %>
           <%= f.text_field :number, class: 'form-control', required: 'required' %>
           <%= f.error_message_on :number %>
         <% end %>
@@ -47,7 +47,7 @@
       
       <div data-hook="admin_sales_schedule_form_title">
         <%= f.field_container :title, class: ['form-group'] do %>
-          <%= f.label :title, Spree.t(:schedule_title) %>
+          <%= f.label :title, I18n.t('sales_shedule.title') %>
           <%= f.text_field :title, class: 'form-control', required: 'required' %>
           <%= f.error_message_on :title %>
         <% end %>
@@ -55,7 +55,7 @@
 
       <div data-hook="admin_sales_schedule_form_description">
         <%= f.field_container :description, class: ['form-group'] do %>
-          <%= f.label :description, Spree.t(:description) %>
+          <%= f.label :description, I18n.t('sales_shedule.description') %>
           <%= f.text_area :description, class: 'form-control', :rows => 10 %>
           <%= f.error_message_on :description %>
         <% end %>

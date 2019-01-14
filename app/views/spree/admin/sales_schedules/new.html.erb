@@ -20,39 +20,39 @@
     
     <div data-hook="new_sales_schedule_start_time" class="col-xs-12 col-md-4">
         <%= f.field_container :group, class: ['form-group'] do %>
-        <%= f.label :start_time, t('spree.sales_shedule.start_time')%>
-        <%= f.text_field :start_time, type: 'datetime', value: (DateTime.now+1.day).strftime("%Y-%m-%d %H:%M"), class: 'form-control' %>
+        <%= f.label :start_time, I18n.t('sales_shedule.start_time')%>
+        <%= f.text_field :start_time, type: 'datetime', value: (DateTime.now+1.day).strftime("%Y-%m-%d %H:%M"), class: 'form-control', required: 'required' %>
         <%= f.error_message_on :start_time %>
         <% end %>
     </div>
 
     <div data-hook="new_sales_schedule_end_time" class="col-xs-12 col-md-4">
         <%= f.field_container :group, class: ['form-group'] do %>
-        <%= f.label :end_time, t('spree.sales_shedule.end_time')%>
-        <%= f.text_field :end_time, type: 'datetime', value: (DateTime.now+1.day+1.hour).strftime("%Y-%m-%d %H:%M"), class: 'form-control' %>
+        <%= f.label :end_time, I18n.t('sales_shedule..end_time')%>
+        <%= f.text_field :end_time, type: 'datetime', value: (DateTime.now+1.day+1.hour).strftime("%Y-%m-%d %H:%M"), class: 'form-control', required: 'required' %>
         <%= f.error_message_on :end_time %>
         <% end %>
     </div>
            
       <div data-hook="admin_sales_schedule_form_number" class="col-xs-12 col-md-4">
         <%= f.field_container :number, class: ['form-group'] do %>
-          <%= f.label :number, Spree.t(:number) %>
-          <%= f.text_field :number, class: 'form-control' %>
+          <%= f.label :number, I18n.t('sales_shedule.number') %>
+          <%= f.text_field :number, class: 'form-control', required: 'required' %>
           <%= f.error_message_on :number %>
         <% end %>
       </div>
       
       <div data-hook="admin_sales_schedule_form_title" class="col-xs-12 col-md-4">
         <%= f.field_container :title, class: ['form-group'] do %>
-          <%= f.label :title, Spree.t(:title) %>
-          <%= f.text_field :title, class: 'form-control' %>
+          <%= f.label :title, I18n.t('sales_shedule.title') %>
+          <%= f.text_field :title, class: 'form-control', required: 'required' %>
           <%= f.error_message_on :title %>
         <% end %>
       </div>
 
       <div data-hook="admin_sales_schedule_form_description" class="col-xs-12 col-md-4">
         <%= f.field_container :description, class: ['form-group'] do %>
-          <%= f.label :description, Spree.t(:description) %>
+          <%= f.label :description, I18n.t('sales_shedule.description') %>
           <%= f.text_area :description, class: 'form-control', :rows => 10 %>
           <%= f.error_message_on :description %>
         <% end %>
