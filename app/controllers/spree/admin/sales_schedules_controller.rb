@@ -5,8 +5,13 @@ module Spree
       def index
         #session[:return_to] = request.url
 
-        respond_with(@collection)
-      #@sales_schedules = Spree::SalesSchedule.all
+        #respond_with(@collection)
+        
+        @sales_schedules = Spree::SalesSchedule.all
+        @sales_schedules = @sales_schedules.joins({:variant => :product}).where("spree_products.name LIKE '%#{params[:q][:title_cont]}%'") if params[:q][:title_cont] 
+        @sales_schedules = @sales_schedules.order(params[:q][:s]) if params[:q][:s]
+        @sales_schedules = @sales_schedules.page(params[:page]).per(params[:per_page])
+        
       end
 
       def create
@@ -44,14 +49,12 @@ module Spree
       def collection
         return @collection if @collection.present?
 
-        # params[:q] can be blank upon pagination
-        params[:q] = {} if params[:q].blank?
-
+        params[:q] ||= {}        
+               
         @collection = super
         @search = @collection.ransack(params[:q])
-        @collection = @search.result.
-                      page(params[:page]).
-                      per(10)
+        @collection = @search.result.page(params[:page]).per(params[:per_page])
+        
       end
       
       def schedule_params
