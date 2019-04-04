@@ -4,7 +4,8 @@ class Spree::SalesSchedule < ActiveRecord::Base
   #validate :validate_correct_string
   validate :validate_correct_period
   validate :validate_past_period
-
+  
+  attr_accessor :return_to_product, :lesson
 
   private
 

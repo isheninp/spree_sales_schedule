@@ -7,7 +7,7 @@ require 'spree_sales_schedule/version'
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_sales_schedule'
-  s.version     = '1.3'
+  s.version     = '1.4.0'
   s.summary     = 'Sales schedule'
   s.description = 'Schedule for product sales'
   s.required_ruby_version = '>= 2.2.7'

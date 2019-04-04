@@ -13,6 +13,9 @@
   </div>
 
   <div class="panel-body">
+  	
+  	<%= f.hidden_field :return_to_product, value: @return_to_product=='1' ? 1 : 0 %>
+  	<%= f.hidden_field :lesson, value: @return_to_product=='1' ? params[:l] : 0 %>
 
     <div data-hook="admin_sales_schedule_form_group" class="form-group">
       <%= f.field_container :variant_id, class: ['form-group'] do %>

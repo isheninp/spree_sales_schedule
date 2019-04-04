@@ -11,9 +11,16 @@
   
   <fieldset data-hook="new_sales_schedule">
   	
+  	<%= f.hidden_field :return_to_product, value: @variant.nil? ? 0 : 1 %>
+  	<%= f.hidden_field :lesson, value: @variant.nil? ? 0 : params[:l] %>
+
     <div data-hook="admin_sales_schedule_form_group" class="form-group">
       <%= f.field_container :variant_id, class: ['form-group'] do %>
-        <%= f.hidden_field :variant_id, class: "variant_autocomplete fullwidth-input" %>
+        <% if @variant.nil?%>
+          <%= f.hidden_field :variant_id, class: "variant_autocomplete fullwidth-input" %>
+        <% else %>
+          <%= f.hidden_field :variant_id, class: "variant_autocomplete fullwidth-input", value: @variant.id %>
+        <% end %>
         <%= f.error_message_on :variant_id %>
       <% end %>
     </div>
@@ -28,7 +35,7 @@
 
     <div data-hook="new_sales_schedule_end_time" class="col-xs-12 col-md-4">
         <%= f.field_container :group, class: ['form-group'] do %>
-        <%= f.label :end_time, I18n.t('sales_shedule..end_time')%>
+        <%= f.label :end_time, I18n.t('sales_shedule.end_time')%>
         <%= f.text_field :end_time, type: 'datetime', value: (DateTime.now+1.day+1.hour).strftime("%Y-%m-%d %H:%M"), class: 'form-control', required: 'required' %>
         <%= f.error_message_on :end_time %>
         <% end %>
@@ -61,9 +68,6 @@
   </fieldset>
 
     <%= render partial: 'spree/admin/shared/new_resource_links' %>
-
-
-
 
   
 <% end %>

@@ -3,9 +3,10 @@ ru:
     number: Номер занятия
     title: Название занятия
     product_id: Код продукта
-    start_time: Время начала занятия
-    end_time: Время окончания занятия
+    start_time: Начало занятия
+    end_time: Окончание занятия
     description: Содержание занятия
+    edit: Редактировать
     validate_correct_period_error: Неверный период! Время окончания должно быть позднее времени начала.
     validate_correct_string_error: Неверная дата! Формат даты "2020-01-15 15:00"
     validate_past_period_error: Неверная дата! Дата начала должна быть не ранее сегодняшнего дня
@@ -16,6 +17,7 @@ ru:
         start_time: Время начала занятия
         end_time: Время окончания занятия
   spree:
+    sales_schedules: Занятия
     models:
       spree/sales_schedule:
         many: "Расписания"

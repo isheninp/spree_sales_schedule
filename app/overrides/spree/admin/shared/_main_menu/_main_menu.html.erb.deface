@@ -1,3 +1,0 @@
-<!-- insert_after 'nav-sidebar' -->
-<% if can? :admin, Spree::SalesSchedule %><ul class='nav nav-sidebar'><%= tab :sales_schedules, match_path: '/sales_schedules', icon: 'dashboard' %></ul><% end %>
-
