@@ -1,0 +1,89 @@
+module Spree
+  Product.class_eval do
+
+    def duplicate
+
+      new_product = self.dup.tap do |new_product|
+        new_product.published = false
+        new_product.name = self.name
+        new_product.taxons = self.taxons
+        new_product.created_at = nil
+        new_product.deleted_at = nil
+        new_product.updated_at = nil
+        new_product.discontinue_on = Time.now + 1.month
+        new_product.product_properties = reset_properties
+        new_product.master = duplicate_master
+        new_product.variants = self.variants.map { |variant| duplicate_variant variant }
+        new_product.reviews = self.reviews.map{|review| duplicate_review review}
+      end
+      new_product.option_types = self.option_types if self.has_variants?
+
+      new_product.send(:duplicate_extra, self) if new_product.respond_to?(:duplicate_extra)
+
+      begin
+        new_product.save!
+      rescue => exception
+        Rails.logger.error "Product clone error #{exception.to_s} product: #{product.name}"
+      end
+
+      new_product
+    end
+
+     private 
+
+    def duplicate_master
+      master = self.master
+      master.dup.tap do |new_master|
+        new_master.sku = sku_generator(master.sku)
+        new_master.deleted_at = nil
+        new_master.images = master.images.map { |image| duplicate_image image }
+        new_master.price = master.price
+        new_master.currency = master.currency
+        new_master.sales_schedules = master.sales_schedules.map { |ss| duplicate_schedule ss }
+      end
+    end
+
+    def duplicate_variant(variant)
+      new_variant = variant.dup
+      new_variant.sku = sku_generator(new_variant.sku)
+      new_variant.deleted_at = nil
+      new_variant.option_values = variant.option_values.map { |option_value| option_value }
+      new_variant.sales_schedules = variant.sales_schedules.map { |ss| duplicate_schedule ss }
+      new_variant
+    end
+
+    def duplicate_schedule schedule
+      new_schedule = schedule.dup
+      new_schedule.start_time = Date.today + 1.month
+      new_schedule.end_time = new_schedule.start_time + 1.hour
+      new_schedule
+    end
+    
+    def duplicate_image(image)
+      new_image = image.dup
+      new_image.attachment.attach(image.attachment.blob)
+      new_image.save!
+      new_image
+    end
+
+    def duplicate_review review
+      new_review = review.dup
+      new_review
+    end
+
+    def reset_properties
+      self.product_properties.map do |prop|
+        prop.dup.tap do |new_prop|
+          new_prop.created_at = nil
+          new_prop.updated_at = nil
+        end
+      end
+    end
+
+    def sku_generator(sku)
+      new_sku = sku.split('-').last
+      "p-#{Time.now.strftime("%Y%m%d")}-#{self.master.id}-#{new_sku}"
+    end
+
+  end
+end
