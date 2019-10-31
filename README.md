@@ -1,6 +1,6 @@
 # Spree Sales Schedule
 
-This gem is under development now!
+Adds feature to have schedule of product sales. For example lesson schedule if you sell lessons as product
 
 ## Installation
 
