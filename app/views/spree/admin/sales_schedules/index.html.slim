@@ -48,7 +48,7 @@
     tbody
       - @sales_schedules.each do |s|
         tr[data-hook="admin_sales_schedules_index_rows" class=""]
-          td= Spree::Variant.find(s.variant_id).name
+          td= Spree::Variant.find(s.variant_id).name rescue '???'
           td= s.number
           td= s.title
           td= s.start_time.strftime("%d-%m-%Y %H:%M")
